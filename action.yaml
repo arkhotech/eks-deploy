@@ -9,18 +9,18 @@ inputs:
     description: Parametros a sobrescribir
     required: false
 
-  region:
-    description: Region AWS
-    default: us-east-1
-    required: false
+  # region:
+  #   description: Region AWS
+  #   default: us-east-1
+  #   required: false
 
-  aws_access_key_id:
-    description: access key
-    required: true
+  # aws_access_key_id:
+  #   description: access key
+  #   required: true
 
-  aws_secret_access_key:
-    description: Secret access key
-    required: true
+  # aws_secret_access_key:
+  #   description: Secret access key
+  #   required: true
 
   service_name:
     description: Nombre del servicio o imagen
