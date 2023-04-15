@@ -1,0 +1,46 @@
+name: 'EKS Deployer Action'
+description: 'Custom Action para desplegar EKS usando HELM'
+inputs:
+  cluster_name: 
+    description: Nombre del cluster EKS
+    required: true
+
+  helm_values:
+    description: Parametros a sobrescribir
+    required: false
+
+  region:
+    description: Region AWS
+    default: us-east-1
+    required: false
+
+  aws_access_key_id:
+    description: access key
+    required: true
+
+  aws_secret_access_key:
+    description: Secret access key
+    required: true
+
+  service_name:
+    description: Nombre del servicio o imagen
+    required: true
+  
+  service_version:
+    description: Version del container
+    required: true
+
+# outputs:
+#   pokemon_name:
+#     description: 'Name des Pokemons'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.helm_values}}
+    - ${{ inputs.cluster_name}}
+    - ${{ inputs.region}}
+    - ${{ inputs.aws_access_key_id}}
+    - ${{ inputs.aws_secret_access_key}}
+    - ${{ inputs.service_name}}
+    - ${{ inputs.service_version}}
