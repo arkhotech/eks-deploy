@@ -36,11 +36,11 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.helm_values}}
-    - ${{ inputs.cluster_name}}
-    - ${{ inputs.region}}
-    - ${{ inputs.aws_access_key_id}}
-    - ${{ inputs.aws_secret_access_key}}
-    - ${{ inputs.service_name}}
-    - ${{ inputs.service_version}}
+  # args:
+  #   - ${{ inputs.helm_values}}
+  #   - ${{ inputs.cluster_name}}
+  #   - ${{ inputs.region}}
+  #   - ${{ inputs.aws_access_key_id}}
+  #   - ${{ inputs.aws_secret_access_key}}
+  #   - ${{ inputs.service_name}}
+  #   - ${{ inputs.service_version}}

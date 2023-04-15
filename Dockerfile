@@ -26,4 +26,4 @@ RUN curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.26.2/2023-03-17/bin/
 
 COPY entrypoint.sh /home/worker
 
-ENTRYPOINT [ "entrypoint.sh" ]
+ENTRYPOINT [ "/home/worker/entrypoint.sh" ]
