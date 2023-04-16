@@ -18,6 +18,6 @@ RUN curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.26.2/2023-03-17/bin/
     mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin ;\
     echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc 
 
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /github/home/entrypoint.sh
 
-ENTRYPOINT [ "entrypoint.sh" ]
+ENTRYPOINT [ "/github/home/entrypoint.sh" ]
