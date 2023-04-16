@@ -6,7 +6,7 @@ echo "Iniciando despliegue usando HELM"
 env
 
 echo "Obteniendo configuración"
-aws eks update-kubeconfig --region $AWS_DEFAULT_REGION --name $INPUT_CLUSTER_NAME
+
 
 ACCOUNT_ID=$(aws sts get-caller-identity | jq -r '.Account')
 

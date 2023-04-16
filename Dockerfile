@@ -12,18 +12,12 @@ RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/s
     chmod 700 get_helm.sh ;\
     ./get_helm.sh
 
-WORKDIR /home/worker
-
-RUN useradd -d /home/worker worker ; \
-    chown worker:worker /home/worker
-
-USER worker
 
 RUN curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.26.2/2023-03-17/bin/linux/amd64/kubectl ;\
     chmod +x ./kubectl ;\
     mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin ;\
     echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc 
 
-COPY entrypoint.sh /home/worker
+COPY entrypoint.sh /
 
-ENTRYPOINT [ "/home/worker/entrypoint.sh" ]
+ENTRYPOINT [ "entrypoint.sh" ]
