@@ -30,6 +30,11 @@ inputs:
     description: Version del container
     required: true
 
+  template_path:
+    description: Path where Helm template is
+    required : false
+    default: tpl_service
+
 # outputs:
 #   pokemon_name:
 #     description: 'Name des Pokemons'
