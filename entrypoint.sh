@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
 
+
+if [ -z "${INPUT_PRE_COMMAND}"];
+then
+    echo "Ejecutando comando pre execution"
+    eval "${INPUT_PRE_COMMAND}"
+fi
+
 echo "Iniciando despliegue usando HELM"
 
 ACCOUNT_ID=$(aws sts get-caller-identity | jq -r '.Account')

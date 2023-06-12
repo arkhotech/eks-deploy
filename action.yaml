@@ -35,9 +35,10 @@ inputs:
     required : false
     default: tpl_service
 
-# outputs:
-#   pokemon_name:
-#     description: 'Name des Pokemons'
+  pre_command:
+    description: Comando que se requiere ejecutar antes del proceso
+    required: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
