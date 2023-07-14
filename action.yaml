@@ -39,6 +39,10 @@ inputs:
     description: Comando que se requiere ejecutar antes del proceso
     required: false
 
+  namespace:
+    description: Namespace de despliegue
+    required: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
