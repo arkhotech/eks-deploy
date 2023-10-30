@@ -16,13 +16,16 @@ fi
 if [ -z "${INPUT_NAMESPACE}" ];
 then
     NAMESPACE=cpat
+    HELM_NAMESPACE=default
 else
     NAMESPACE=$INPUT_NAMESPACE
+    HELM_NAMESPACE=$INPUT_NAMESPACE
 fi
 echo "Namespace: $NAMESPACE"
 
 IMAGE="${ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${INPUT_SERVICE_NAME}:${INPUT_SERVICE_VERSION}"
-helm upgrade --install ${INPUT_SERVICE_NAME} ./${INPUT_TEMPLATE_PATH} \
+helm upgrade --namespace  ${INPUT_NAMESPACE} \
+        --install ${INPUT_SERVICE_NAME} ./${INPUT_TEMPLATE_PATH} \
         --set image.repository=$IMAGE \
         --set image.tag=$INPUT_SERVICE_VERSION \
         --set namespace=$NAMESPACE --debug
